@@ -1,0 +1,5 @@
+Array : an array is a variable that can store multiple values of the same type.
+
+    int nums[] =  {7,8,9,6,5,2};
+    for(int &n : nums)
+        cout << n << " ";

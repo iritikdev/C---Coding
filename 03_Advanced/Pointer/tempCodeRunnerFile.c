@@ -1,0 +1,1 @@
+printf("Value of a: %d", a);

@@ -1,0 +1,71 @@
+// Brute Force - O(n^2)
+int majorityElements(int items[], int n) {
+    int max = 0;
+    int element;
+    int occurence;
+    for (int i = 0; i < n; i++) {
+        int count = 0;
+        for (int j = 0; j < n; j++) {
+           if(items[i] == items[j])
+               count++;
+        }
+        if(count > max) {
+            occurence = max = count;
+            element = items[i];
+        }
+    }
+    if(occurence > n/2)
+        return element;
+    return -1;
+}
+
+// Sorting - O(nlogn + n)
+int majorityElements(int items[], int n) {
+    sort(items, items + n);
+
+    int index = n / 2 - 1;
+    int mid = items[index];
+
+    int count = 0;
+    for (int i = index; i < n; i++) {
+        if(items[i] == mid)
+            count++;
+    }
+
+    if(count > index)
+        return mid;
+
+    return -1;
+}
+
+8   2   8   3   8   2  8   8
+
+    votes = 0
+    candidate = -1
+
+    for(int i = 0; i < n; i++) {
+        if(votes == 0) {
+            candidate = arr[i];
+            votes = 1
+        }
+        else if(arr[i] == candidate) votes++;
+        else votes--;
+    }
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if(items[i] == candidate)
+            count++;
+    }
+
+    if(count > n / 2)
+        return candidate;
+    return -1;
+
+1   2   3   4   5  k = 2
+2   3   4   5   1
+3   4   5   1   2
+
+
+Done :)
+
+
